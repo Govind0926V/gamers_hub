@@ -1,0 +1,23 @@
+<!-- games/templates/games/profile.html -->
+{% extends 'games/base.html' %}
+
+{% block title %}{{ user.username }}'s Profile{% endblock %}
+
+{% block content %}
+    <h2>{{ user.username }}'s Profile</h2>
+    <p>Email: {{ user.email }}</p>
+
+    <h3>Friends</h3>
+    <ul>
+    {% for friend in user.friends.all %}
+        <li>{{ friend.username }}</li>
+    {% endfor %}
+    </ul>
+
+    <h3>Your Game Lists</h3>
+    <ul>
+    {% for list in user.game_lists.all %}
+        <li>{{ list.name }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}

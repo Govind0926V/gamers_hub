@@ -1,0 +1,16 @@
+<!-- games/templates/games/home.html -->
+{% extends 'games/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Welcome to Gamers' Social Hub</h2>
+    <p>Discover, rate, and discuss your favorite video games with a vibrant community.</p>
+    
+    <h3>Popular Games</h3>
+    <ul>
+    {% for game in popular_games %}
+        <li><a href="{% url 'game_detail' game.id %}">{{ game.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

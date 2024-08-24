@@ -1,0 +1,27 @@
+<!-- games/templates/games/game_detail.html -->
+{% extends 'games:base.html' %}
+
+{% block title %}{{ game.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ game.title }}</h2>
+    <p>Genre: {{ game.genre }}</p>
+    <p>Release Date: {{ game.release_date }}</p>
+
+    <h3>Reviews</h3>
+    <ul>
+    {% for review in game.reviews.all %}
+        <li>{{ review.reviewer.username }}: {{ review.content }} (Rating: {{ review.rating }}/10)</li>
+    {% endfor %}
+    </ul>
+
+    <h3>Add a Review</h3>
+    <form method="post" action="{% url 'add_review' game.id %}">
+        {% csrf_token %}
+        <textarea name="content" placeholder="Write your review..."></textarea>
+        <br>
+        <input type="number" name="rating" min="1" max="10" placeholder="Rating (1-10)">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
