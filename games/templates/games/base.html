@@ -1,4 +1,6 @@
 <!-- games/templates/games/base.html -->
+
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
     {% load static %}
@@ -7,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Gamers' Social Hub{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% tailwind_css %}
 </head>
 <body>
     <header>
