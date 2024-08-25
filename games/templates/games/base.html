@@ -13,9 +13,10 @@
         <h1>Gamers' Social Hub</h1>
         <nav>
             <ul>
-                {% comment %} <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'profile' request.user.username %}">Profile</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% comment %} <li><a href="{% url 'profile' request.user.username %}">Profile</a></li>
                 <li><a href="{% url 'recommendations' %}">Recommendations</a></li> {% endcomment %}
+
             </ul>
         </nav>
     </header>
