@@ -8,8 +8,9 @@ def home(request):
     return render(request, 'games/home.html')
 
 def profile(request, username):
+    
     user = User.nodes.get(username=username)
-    return render(request, 'profile.html', {'user': user})
+    return render(request, 'games/profile.html', {'user': user})
 
 def game_detail(request, game_id):
     game = Game.nodes.get(id=game_id)

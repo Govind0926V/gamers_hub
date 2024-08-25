@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-
+from neomodel import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,8 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'games.apps.GamesConfig',
-    'neomodel'
+    'neomodel',
+    # other Django apps
+    'tailwind',
+    #theme app for tailwind
+    'theme',
 ]
+
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+TAILWIND_APP_NAME='theme'
+INTERNAL_IPS=['127.0.0.1']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +92,7 @@ DATABASES = {
     }
 }
 
+config.DATABASE_URL = 'bolt://neo4j:admin123@localhost:7687'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -133,6 +142,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:password@localhost:7687'
+NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:admin123@localhost:7687'
 NEOMODEL_ENCRYPTED_CONNECTION = False  # True if using SSL
 
