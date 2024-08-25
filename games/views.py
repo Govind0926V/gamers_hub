@@ -34,5 +34,5 @@ def add_friend(request, user_id):
 
 def recommendations(request):
     user = User.nodes.get(id=request.user.id)
-    recommendations = recommend_games(user)  # Assuming recommend_games is defined
+    recommendations = recommend_games(user)  # type: ignore # Assuming recommend_games is defined
     return render(request, 'recommendations.html', {'recommendations': recommendations})
